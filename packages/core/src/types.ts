@@ -1,8 +1,3 @@
-export enum NetworkId {
-  MAINNET = 1,
-  TESTNET = 2,
-}
-
 export interface ZilReactManagerFunctions {
   activate: (
     connector: any,
@@ -16,7 +11,7 @@ export interface ZilReactManagerFunctions {
 export interface ZilReactManagerReturn extends ZilReactManagerFunctions {
   connector?: any;
   provider?: any;
-  networkId?: NetworkId;
+  networkId?: number;
   account?: null | string;
   error?: Error;
 }
@@ -24,7 +19,7 @@ export interface ZilReactManagerReturn extends ZilReactManagerFunctions {
 export interface ZilReactContextInterface<T = any> extends ZilReactManagerFunctions {
   connector?: any;
   library?: T;
-  networkId?: NetworkId;
+  networkId?: number;
   account?: null | string;
   active: boolean;
   error?: Error;
