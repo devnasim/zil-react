@@ -1,0 +1,25 @@
+{
+  "name": "@zil-react/core",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "Nasim Akhtar <devnasim18@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "gitHead": "",
+  "dependencies": {
+    "react": "^17.0.2",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  }
+}
