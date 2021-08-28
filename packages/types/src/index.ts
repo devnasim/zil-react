@@ -7,7 +7,7 @@ export interface AbstractConnectorArguments {
   supportedNetworkIds?: number[];
 }
 
-export interface ConnectorUpdate<T = number | string> {
+export interface ConnectorUpdate<T = number> {
   provider?: any;
   networkId?: T;
   account?: null | Account;

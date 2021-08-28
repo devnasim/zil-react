@@ -21,20 +21,20 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@zilliqa-react/abstract-connector@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.0.16.tgz#2e222aa255fb0dce24c1689a7e399e5ed72c929a"
-  integrity sha512-pZ2fWV1vi+noVqdPbk/A+S43unptoe1YJs+CrbjBS0fU4QX6zlpMzVw9fcz3Nr+nPUoouRUINYoU3OX4M+GcPA==
+"@zilliqa-react/abstract-connector@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.0.17.tgz#dcb859cdc54c905f303d3f21998e82b25aa391ef"
+  integrity sha512-zoPhgGMFs9gTbum65zRm63mEqg3NMkfv7iVsyaO9rGFzz5HqyHU7ve5oIWrdy688KXuMOOOQ6eEn/aRo4T0vQA==
   dependencies:
-    "@zilliqa-react/types" "^0.0.16"
+    "@zilliqa-react/types" "^0.0.17"
     react "^17.0.2"
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@zilliqa-react/types@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/types/-/types-0.0.16.tgz#694c93b1db0030d8a5f519d4886f541dc2fddce0"
-  integrity sha512-f7nPYxQLsjuY74yprHCoWYbeRmzm3FmbnIuKS0VDQbjmrWVW5m1sp9LOhjg3Em6+WQi61zNhrMXMy7degXWWhQ==
+"@zilliqa-react/types@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/types/-/types-0.0.17.tgz#433f412e4cdf14d89bfd35a7576e59ea86841e93"
+  integrity sha512-Uk96SSsIDmZ7QjzDYyCZt6QsI1x+Hx3SbbXoiPrLpLzZmsDgMMlv1X2rq0N5QGlypq2XnE/pXRCIE/ZhrJgHpQ==
   dependencies:
     react "^17.0.2"
     tiny-invariant "^1.1.0"

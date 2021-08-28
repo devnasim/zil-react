@@ -99,17 +99,17 @@ function reducer(state: ZilReactManagerState, { type, payload }: Action): ZilRea
 async function augmentConnectorUpdate(
   connector: AbstractConnector,
   update: ConnectorUpdate,
-): Promise<ConnectorUpdate<number | string>> {
+): Promise<ConnectorUpdate<number>> {
   const provider = update.provider === undefined ? await connector.getProvider() : update.provider;
   const [_networkId, _account] = (await Promise.all([
-    update.networkId === undefined ? connector.getChainId() : update.networkId,
+    update.networkId === undefined ? connector.getNetworkId() : update.networkId,
     update.account === undefined ? connector.getAccount() : update.account,
   ])) as [Required<ConnectorUpdate>['networkId'], Required<ConnectorUpdate>['account']];
 
   return { provider, networkId: _networkId, account: _account };
 }
 
-export function useWeb3ReactManager(): ZilReactManagerReturn {
+export function useZilReactManager(): ZilReactManagerReturn {
   const [state, dispatch] = useReducer(reducer, {});
   const { connector, provider, networkId, account, onError, error } = state;
   const updateBusterRef = useRef(-1);
@@ -165,6 +165,93 @@ export function useWeb3ReactManager(): ZilReactManagerReturn {
   const deactivate = useCallback((): void => {
     dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
   }, []);
+
+  const handleUpdate = useCallback(
+    async (update: ConnectorUpdate): Promise<void> => {
+      if (!connector) {
+        throw Error("This should never happen, it's just so Typescript stops complaining");
+      }
+
+      const updateBusterInitial = updateBusterRef.current;
+
+      // updates are handled differently depending on whether the connector is active vs in an error state
+      if (!error) {
+        const networkId = update.networkId === undefined ? undefined : update.networkId;
+        if (
+          networkId !== undefined &&
+          !!connector.supportedNetworkIds &&
+          !connector.supportedNetworkIds.includes(networkId)
+        ) {
+          const error = new UnsupportedNetworkIdError(networkId, connector.supportedNetworkIds);
+          onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+        } else {
+          const { account } = update;
+          dispatch({
+            type: ActionType.UPDATE,
+            payload: { provider: update.provider, networkId, account },
+          });
+        }
+      } else {
+        try {
+          const augmentedUpdate = await augmentConnectorUpdate(connector, update);
+
+          if (updateBusterRef.current > updateBusterInitial) {
+            throw new StaleConnectorError();
+          }
+          dispatch({ type: ActionType.UPDATE_FROM_ERROR, payload: augmentedUpdate });
+        } catch (error) {
+          if (error instanceof StaleConnectorError) {
+            warning(
+              false,
+              `Suppressed stale connector update from error state ${connector} ${update}`,
+            );
+          } else {
+            // though we don't have to, we're re-circulating the new error
+            onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+          }
+        }
+      }
+    },
+    [connector, error, onError],
+  );
+
+  const handleError = useCallback(
+    (error: Error): void => {
+      onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+    },
+    [onError],
+  );
+  const handleDeactivate = useCallback((): void => {
+    dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
+  }, []);
+
+  // ensure that connectors which were set are deactivated
+  useEffect((): (() => void) => {
+    return () => {
+      if (connector) {
+        connector.deactivate();
+      }
+    };
+  }, [connector]);
+
+  // ensure that events emitted from the set connector are handled appropriately
+  useEffect((): (() => void) => {
+    if (connector) {
+      connector
+        .on(ConnectorEvent.Update, handleUpdate)
+        .on(ConnectorEvent.Error, handleError)
+        .on(ConnectorEvent.Deactivate, handleDeactivate);
+    }
+
+    return () => {
+      if (connector) {
+        connector
+          .off(ConnectorEvent.Update, handleUpdate)
+          .off(ConnectorEvent.Error, handleError)
+          .off(ConnectorEvent.Deactivate, handleDeactivate);
+      }
+    };
+  }, [connector, handleUpdate, handleError, handleDeactivate]);
 
   return { connector, provider, networkId, account, activate, setError, deactivate, error };
 }

@@ -19,11 +19,11 @@ export interface ZilReactManagerReturn extends ZilReactManagerFunctions {
   error?: Error;
 }
 
-export interface Web3ReactContextInterface<T = any> extends ZilReactManagerFunctions {
+export interface ZilReactContextInterface<T = any> extends ZilReactManagerFunctions {
   connector?: AbstractConnector;
   library?: T;
   networkId?: number;
-  account?: null | string;
+  account?: null | Account;
 
   active: boolean;
   error?: Error;
