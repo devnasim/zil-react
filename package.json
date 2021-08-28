@@ -1,5 +1,5 @@
 {
-  "name": "zil-react",
+  "name": "zilliqa-react",
   "private": false,
   "scripts": {
     "publish": "lerna run tsc && lerna publish"

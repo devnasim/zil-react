@@ -6,11 +6,11 @@ declare const __DEV__: boolean;
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class AbstractConnector extends EventEmitter {
-  public readonly supportedChainIds?: number[];
+  public readonly supportedNetworkIds?: number[];
 
-  constructor({ supportedChainIds }: AbstractConnectorArguments = {}) {
+  constructor({ supportedNetworkIds }: AbstractConnectorArguments = {}) {
     super();
-    this.supportedChainIds = supportedChainIds;
+    this.supportedNetworkIds = supportedNetworkIds;
   }
 
   public abstract activate(): Promise<ConnectorUpdate>;

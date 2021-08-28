@@ -13,6 +13,7 @@ export interface ConnectorUpdate<T = number | string> {
   account?: null | Account;
 }
 
+// eslint-disable-next-line no-shadow
 export enum ConnectorEvent {
   Update = 'ZilReactUpdate',
   Error = 'ZilReactError',
