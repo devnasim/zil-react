@@ -25,5 +25,9 @@
     "prettier": "^2.1.2",
     "typescript": "^4.3.5"
   },
-  "version": "0.0.13"
+  "license": "MIT",
+  "version": "0.0.15",
+  "dependencies": {
+    "tsdx": "^0.14.1"
+  }
 }
