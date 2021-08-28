@@ -1,15 +1,15 @@
 import { EventEmitter } from 'events';
-import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@web3-react/types';
+import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@zilliqa-react/types';
 
 // eslint-disable-next-line no-underscore-dangle
 declare let __DEV__: boolean;
 // eslint-disable-next-line import/prefer-default-export
 export abstract class AbstractConnector extends EventEmitter {
-  public readonly supportedNetworksIds?: number[];
+  public readonly supportedNetworkIds?: number[];
 
-  constructor({ supportedChainIds }: AbstractConnectorArguments = {}) {
+  constructor({ supportedNetworkIds }: AbstractConnectorArguments = {}) {
     super();
-    this.supportedNetworksIds = supportedChainIds;
+    this.supportedNetworkIds = supportedNetworkIds;
   }
 
   public abstract activate(): Promise<ConnectorUpdate>;

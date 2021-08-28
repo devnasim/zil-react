@@ -7,6 +7,15 @@
   resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-6.0.7.tgz#34a6204224467eedc6123abaf55fbb6baeb2809f"
   integrity sha512-ofGmfDhxmNT1/P/MgVa8IKSkCStFiyvXe+U5tyZurKdrtTDFU+wJ/LxClPDtFerWpczNFPUSrKcuhfPX1sI6+A==
 
+"@zilliqa-react/types@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/types/-/types-0.0.15.tgz#d94d0b047cb67b0d7c41bff7bfbd7b5aca315c70"
+  integrity sha512-56lzg4XsWfp2jmHsITvKcw32WY8j1tYnY+jyH2bkSX3SuJMmu8N4n1rATXKi2VbURxoijlYETWOCWMe8Z00bBw==
+  dependencies:
+    react "^17.0.2"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"

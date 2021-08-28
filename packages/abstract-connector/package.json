@@ -7,7 +7,7 @@
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/types.esm.js",
   "typings": "dist/index.d.ts",
@@ -16,7 +16,7 @@
   ],
   "gitHead": "",
   "dependencies": {
-    "@web3-react/types": "^6.0.7",
+    "@zilliqa-react/types": "^0.0.15",
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
