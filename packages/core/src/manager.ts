@@ -2,9 +2,10 @@
 /* eslint-disable default-case */
 /* eslint-disable no-shadow */
 import { useReducer, useEffect, useCallback, useRef } from 'react';
-import { ConnectorUpdate, Account } from '@zilliqa-react/types';
+import { ConnectorUpdate, ConnectorEvent, Account } from '@zilliqa-react/types';
 import { AbstractConnector } from '@zilliqa-react/abstract-connector';
 import warning from 'tiny-warning';
+import invariant from 'tiny-invariant';
 
 import { ZilReactManagerReturn } from './types';
 
@@ -96,22 +97,41 @@ function reducer(state: ZilReactManagerState, { type, payload }: Action): ZilRea
   }
 }
 
+function normalizeNetworkId(networkId: string | number): number {
+  if (typeof networkId === 'string') {
+    // Temporary fix until the next version of Metamask Mobile gets released.
+    // In the current version (0.2.13), the chainId starts with “Ox” rather
+    // than “0x”. Fix: https://github.com/MetaMask/metamask-mobile/pull/1275
+    // eslint-disable-next-line no-param-reassign
+    networkId = networkId.replace(/^Ox/, '0x');
+
+    const parsedChainId = Number.parseInt(
+      networkId,
+      networkId.trim().substring(0, 2) === '0x' ? 16 : 10,
+    );
+    invariant(!Number.isNaN(parsedChainId), `chainId ${networkId} is not an integer`);
+    return parsedChainId;
+  }
+  invariant(Number.isInteger(networkId), `chainId ${networkId} is not an integer`);
+  return networkId;
+}
+
 async function augmentConnectorUpdate(
   connector: AbstractConnector,
   update: ConnectorUpdate,
-): Promise<ConnectorUpdate<number | string>> {
+): Promise<ConnectorUpdate<number>> {
   const provider = update.provider === undefined ? await connector.getProvider() : update.provider;
   const [_networkId, _account] = (await Promise.all([
     update.networkId === undefined ? connector.getNetworkId() : update.networkId,
     update.account === undefined ? connector.getAccount() : update.account,
   ])) as [Required<ConnectorUpdate>['networkId'], Required<ConnectorUpdate>['account']];
-
-  return { provider, networkId: _networkId, account: _account };
+  const networkId = normalizeNetworkId(_networkId);
+  return { provider, networkId, account: _account };
 }
 
-export function useZilReactManager(): ZilReactManagerReturn {
+export function useWeb3ReactManager(): ZilReactManagerReturn {
   const [state, dispatch] = useReducer(reducer, {});
-  const { connector, provider, networkId, account, error } = state;
+  const { connector, provider, networkId, account, onError, error } = state;
   const updateBusterRef = useRef(-1);
   updateBusterRef.current += 1;
 
@@ -166,64 +186,65 @@ export function useZilReactManager(): ZilReactManagerReturn {
     dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
   }, []);
 
-  // const handleUpdate = useCallback(
-  //   async (update: ConnectorUpdate): Promise<void> => {
-  //     if (!connector) {
-  //       throw Error("This should never happen, it's just so Typescript stops complaining");
-  //     }
+  const handleUpdate = useCallback(
+    async (update: ConnectorUpdate): Promise<void> => {
+      if (!connector) {
+        throw Error("This should never happen, it's just so Typescript stops complaining");
+      }
 
-  //     const updateBusterInitial = updateBusterRef.current;
+      const updateBusterInitial = updateBusterRef.current;
 
-  //     // updates are handled differently depending on whether the connector is active vs in an error state
-  //     if (!error) {
-  //       const networkId = update.networkId === undefined ? undefined : update.networkId;
-  //       if (
-  //         networkId !== undefined &&
-  //         !!connector.supportedNetworkIds &&
-  //         !connector.supportedNetworkIds.includes(networkId)
-  //       ) {
-  //         const error = new UnsupportedNetworkIdError(networkId, connector.supportedNetworkIds);
-  //         onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
-  //       } else {
-  //         const { account } = update;
-  //         dispatch({
-  //           type: ActionType.UPDATE,
-  //           payload: { provider: update.provider, networkId, account },
-  //         });
-  //       }
-  //     } else {
-  //       try {
-  //         const augmentedUpdate = await augmentConnectorUpdate(connector, update);
+      // updates are handled differently depending on whether the connector is active vs in an error state
+      if (!error) {
+        const networkId =
+          update.networkId === undefined ? undefined : normalizeNetworkId(update.networkId);
+        if (
+          networkId !== undefined &&
+          !!connector.supportedNetworkIds &&
+          !connector.supportedNetworkIds.includes(networkId)
+        ) {
+          const error = new UnsupportedNetworkIdError(networkId, connector.supportedNetworkIds);
+          onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+        } else {
+          const { account } = update;
+          dispatch({
+            type: ActionType.UPDATE,
+            payload: { provider: update.provider, networkId, account },
+          });
+        }
+      } else {
+        try {
+          const augmentedUpdate = await augmentConnectorUpdate(connector, update);
 
-  //         if (updateBusterRef.current > updateBusterInitial) {
-  //           throw new StaleConnectorError();
-  //         }
-  //         dispatch({ type: ActionType.UPDATE_FROM_ERROR, payload: augmentedUpdate });
-  //       } catch (error) {
-  //         if (error instanceof StaleConnectorError) {
-  //           warning(
-  //             false,
-  //             `Suppressed stale connector update from error state ${connector} ${update}`,
-  //           );
-  //         } else {
-  //           // though we don't have to, we're re-circulating the new error
-  //           onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
-  //         }
-  //       }
-  //     }
-  //   },
-  //   [connector, error, onError],
-  // );
+          if (updateBusterRef.current > updateBusterInitial) {
+            throw new StaleConnectorError();
+          }
+          dispatch({ type: ActionType.UPDATE_FROM_ERROR, payload: augmentedUpdate });
+        } catch (error) {
+          if (error instanceof StaleConnectorError) {
+            warning(
+              false,
+              `Suppressed stale connector update from error state ${connector} ${update}`,
+            );
+          } else {
+            // though we don't have to, we're re-circulating the new error
+            onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+          }
+        }
+      }
+    },
+    [connector, error, onError],
+  );
 
-  // const handleError = useCallback(
-  //   (error: Error): void => {
-  //     onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
-  //   },
-  //   [onError],
-  // );
-  // const handleDeactivate = useCallback((): void => {
-  //   dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
-  // }, []);
+  const handleError = useCallback(
+    (error: Error): void => {
+      onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+    },
+    [onError],
+  );
+  const handleDeactivate = useCallback((): void => {
+    dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
+  }, []);
 
   // ensure that connectors which were set are deactivated
   useEffect((): (() => void) => {
@@ -235,23 +256,23 @@ export function useZilReactManager(): ZilReactManagerReturn {
   }, [connector]);
 
   // ensure that events emitted from the set connector are handled appropriately
-  // useEffect((): (() => void) => {
-  //   if (connector) {
-  //     connector
-  //       .on(ConnectorEvent.Update, handleUpdate)
-  //       .on(ConnectorEvent.Error, handleError)
-  //       .on(ConnectorEvent.Deactivate, handleDeactivate);
-  //   }
+  useEffect((): (() => void) => {
+    if (connector) {
+      connector
+        .on(ConnectorEvent.Update, handleUpdate)
+        .on(ConnectorEvent.Error, handleError)
+        .on(ConnectorEvent.Deactivate, handleDeactivate);
+    }
 
-  //   return () => {
-  //     if (connector) {
-  //       connector
-  //         .off(ConnectorEvent.Update, handleUpdate)
-  //         .off(ConnectorEvent.Error, handleError)
-  //         .off(ConnectorEvent.Deactivate, handleDeactivate);
-  //     }
-  //   };
-  // }, [connector, handleUpdate, handleError, handleDeactivate]);
+    return () => {
+      if (connector) {
+        connector
+          .off(ConnectorEvent.Update, handleUpdate)
+          .off(ConnectorEvent.Error, handleError)
+          .off(ConnectorEvent.Deactivate, handleDeactivate);
+      }
+    };
+  }, [connector, handleUpdate, handleError, handleDeactivate]);
 
   return { connector, provider, networkId, account, activate, setError, deactivate, error };
 }
