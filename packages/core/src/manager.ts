@@ -129,7 +129,7 @@ async function augmentConnectorUpdate(
   return { provider, networkId, account: _account };
 }
 
-export function useWeb3ReactManager(): ZilReactManagerReturn {
+export function useZilReactManager(): ZilReactManagerReturn {
   const [state, dispatch] = useReducer(reducer, {});
   const { connector, provider, networkId, account, onError, error } = state;
   const updateBusterRef = useRef(-1);
