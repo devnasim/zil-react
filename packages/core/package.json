@@ -1,21 +1,14 @@
 {
   "name": "@zilliqa-react/core",
   "version": "0.0.4",
-  "description": "> TODO: description",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "src/index.ts",
-  "directories": {
-    "src": "src",
-    "test": "test"
-  },
   "files": [
-    "src"
+    "dist"
   ],
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
   "gitHead": "",
   "dependencies": {
     "react": "^17.0.2",

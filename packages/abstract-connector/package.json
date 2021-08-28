@@ -1,28 +1,18 @@
 {
   "name": "@zilliqa-react/abstract-connector",
   "version": "0.0.4",
-  "description": "> TODO: description",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
-  "homepage": "https://github.com/devnasim/zil-react#readme",
+  "homepage": "",
   "license": "ISC",
-  "main": "lib/abstract-connector.js",
-  "directories": {
-    "src": "src"
-  },
+  "main": "src/index.ts",
   "files": [
-    "src"
+    "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/devnasim/zil-react.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/devnasim/zil-react/issues"
-  },
+  "gitHead": "",
   "dependencies": {
-    "events": "^3.3.0"
+    "react": "^17.0.2",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
   }
 }
