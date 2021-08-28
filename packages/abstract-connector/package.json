@@ -1,0 +1,29 @@
+{
+  "name": "@zilliqa-react/abstract-connector",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.13",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
+  "author": "Nasim Akhtar <devnasim18@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/types.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "gitHead": "",
+  "dependencies": {
+    "@web3-react/types": "^6.0.7",
+    "react": "^17.0.2",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
+  }
+}
