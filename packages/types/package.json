@@ -8,11 +8,11 @@
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "src/index.ts",
+  "main": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "gitHead": "1886e11e2295d1761aba7b36a26e3672ad2ae6c8",
+  "gitHead": "378623a036868f2c2c24ff1208378b5e99787151",
   "dependencies": {
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
