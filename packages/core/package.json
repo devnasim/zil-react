@@ -1,6 +1,6 @@
 {
   "name": "@zilliqa-react/core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
