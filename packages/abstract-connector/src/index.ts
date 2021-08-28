@@ -44,3 +44,6 @@ declare const __DEV__: boolean;
 //     this.emit(ConnectorEvent.Deactivate);
 //   }
 // }
+
+// eslint-disable-next-line import/prefer-default-export
+export abstract class AbstractConnector extends EventEmitter {}

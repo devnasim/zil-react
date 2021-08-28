@@ -12,7 +12,7 @@
   "files": [
     "dist"
   ],
-  "gitHead": "f7ea149c9188fc8685b4ada1a34516f64096044b",
+  "gitHead": "c85f4ca7b327c60314bfb29f0bee712c62c58874",
   "dependencies": {
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
