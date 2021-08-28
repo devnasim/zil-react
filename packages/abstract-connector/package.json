@@ -1,5 +1,8 @@
 {
   "name": "@zilliqa-react/abstract-connector",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.5",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
@@ -9,7 +12,7 @@
   "files": [
     "dist"
   ],
-  "gitHead": "",
+  "gitHead": "f7ea149c9188fc8685b4ada1a34516f64096044b",
   "dependencies": {
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
