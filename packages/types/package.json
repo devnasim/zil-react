@@ -8,11 +8,13 @@
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/types.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "gitHead": "378623a036868f2c2c24ff1208378b5e99787151",
+  "gitHead": "1e7e2940d3b8c2a8d9a10b983cc1c5bfcc14fb3e",
   "dependencies": {
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
