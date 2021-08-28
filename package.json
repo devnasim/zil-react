@@ -2,7 +2,13 @@
   "name": "zilliqa-react",
   "private": false,
   "scripts": {
-    "publish": "lerna run tsc && lerna publish"
+    "bootstrap": "lerna bootstrap",
+    "publish:lerna": "lerna publish",
+    "clean": "lerna clean --yes && lerna exec -- rimraf yarn.lock dist/ .rts2_cache_{cjs,esm}/",
+    "build": "lerna run build",
+    "start": "lerna run --parallel --no-bail start -- --noClean",
+    "lint": "lerna run lint --parallel",
+    "test": "lerna run test --parallel"
   },
   "devDependencies": {
     "@types/node": "^16.7.1",
@@ -19,5 +25,5 @@
     "prettier": "^2.1.2",
     "typescript": "^4.3.5"
   },
-  "version": "0.0.7"
+  "version": "0.0.9"
 }
