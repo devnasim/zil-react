@@ -2,7 +2,7 @@
 /* eslint-disable default-case */
 /* eslint-disable no-shadow */
 import { useReducer, useEffect, useCallback, useRef } from 'react';
-import { ConnectorUpdate, ConnectorEvent, Account } from '@zilliqa-react/types';
+import { ConnectorUpdate, Account } from '@zilliqa-react/types';
 import { AbstractConnector } from '@zilliqa-react/abstract-connector';
 import warning from 'tiny-warning';
 
@@ -111,7 +111,7 @@ async function augmentConnectorUpdate(
 
 export function useZilReactManager(): ZilReactManagerReturn {
   const [state, dispatch] = useReducer(reducer, {});
-  const { connector, provider, networkId, account, onError, error } = state;
+  const { connector, provider, networkId, account, error } = state;
   const updateBusterRef = useRef(-1);
   updateBusterRef.current += 1;
 
@@ -215,15 +215,15 @@ export function useZilReactManager(): ZilReactManagerReturn {
   //   [connector, error, onError],
   // );
 
-  const handleError = useCallback(
-    (error: Error): void => {
-      onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
-    },
-    [onError],
-  );
-  const handleDeactivate = useCallback((): void => {
-    dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
-  }, []);
+  // const handleError = useCallback(
+  //   (error: Error): void => {
+  //     onError ? onError(error) : dispatch({ type: ActionType.ERROR, payload: { error } });
+  //   },
+  //   [onError],
+  // );
+  // const handleDeactivate = useCallback((): void => {
+  //   dispatch({ type: ActionType.DEACTIVATE_CONNECTOR });
+  // }, []);
 
   // ensure that connectors which were set are deactivated
   useEffect((): (() => void) => {
