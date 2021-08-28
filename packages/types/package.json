@@ -14,10 +14,15 @@
   "files": [
     "dist"
   ],
-  "gitHead": "1e7e2940d3b8c2a8d9a10b983cc1c5bfcc14fb3e",
+  "gitHead": "fefa334830a0034dd773af9bfb0724c3292575f1",
   "dependencies": {
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
   }
 }
