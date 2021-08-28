@@ -16,7 +16,7 @@ export abstract class AbstractConnector extends EventEmitter {
 
   public abstract getProvider(): Promise<any>;
 
-  public abstract getChainId(): Promise<number | string>;
+  public abstract getNetworkId(): Promise<number | string>;
 
   public abstract getAccount(): Promise<null | string>;
 
