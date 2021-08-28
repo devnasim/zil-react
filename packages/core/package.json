@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
   "author": "Nasim Akhtar <devnasim18@gmail.com>",
   "homepage": "",
@@ -16,8 +16,8 @@
   ],
   "gitHead": "fab8c57ae04b27da5e2ea0377afe857c5f2a630a",
   "dependencies": {
-    "@zilliqa-react/abstract-connector": "^0.0.16",
-    "@zilliqa-react/types": "^0.0.16",
+    "@zilliqa-react/abstract-connector": "^0.0.17",
+    "@zilliqa-react/types": "^0.0.17",
     "react": "^17.0.2",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
