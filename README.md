@@ -11,11 +11,6 @@ _A simple, maximally extensible, dependency minimized framework for building mod
 | 🔌 **Connectors**
 `@zilliqa-react/zilpay-connector`
 
-## Quickstart
-
-[![Edit web3-react-example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/NoahZinsmeister/web3-react/tree/v6/example?fontsize=14&hidenavigation=1&theme=dark)
-
-
 ## Local Development
 
 - Clone repo\
