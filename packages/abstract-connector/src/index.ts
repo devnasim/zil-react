@@ -1,5 +1,10 @@
 import { EventEmitter } from 'events';
-import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@zilliqa-react/types';
+import {
+  AbstractConnectorArguments,
+  ConnectorUpdate,
+  ConnectorEvent,
+  Account,
+} from '@zilliqa-react/types';
 
 // eslint-disable-next-line no-underscore-dangle
 declare let __DEV__: boolean;
@@ -18,7 +23,7 @@ export abstract class AbstractConnector extends EventEmitter {
 
   public abstract getNetworkId(): Promise<number | string>;
 
-  public abstract getAccount(): Promise<null | string>;
+  public abstract getAccount(): Promise<null | Account>;
 
   public abstract deactivate(): void;
 

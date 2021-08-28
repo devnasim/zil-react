@@ -29,6 +29,7 @@ export function createZilReactRoot(key: string): (args: ZilReactProviderArgument
     },
     active: false,
   });
+
   CONTEXTS[key].displayName = `ZilReactContext - ${key}`;
 
   const { Provider } = CONTEXTS[key];
@@ -37,18 +38,8 @@ export function createZilReactRoot(key: string): (args: ZilReactProviderArgument
     getLibrary,
     children,
   }: ZilReactProviderArguments): JSX.Element {
-    const {
-      connector,
-      provider,
-      networkId,
-      account,
-
-      activate,
-      setError,
-      deactivate,
-
-      error,
-    } = useZilReactManager();
+    const { connector, provider, networkId, account, activate, setError, deactivate, error } =
+      useZilReactManager();
 
     const active =
       connector !== undefined && networkId !== undefined && account !== undefined && !error;
@@ -65,11 +56,9 @@ export function createZilReactRoot(key: string): (args: ZilReactProviderArgument
       library,
       networkId,
       account,
-
       activate,
       setError,
       deactivate,
-
       active,
       error,
     };

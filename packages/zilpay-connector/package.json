@@ -1,0 +1,31 @@
+{
+  "name": "@zilliqa-react/zilpay-connector",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Zilliqa dApps",
+  "author": "Nasim Akhtar <devnasim18@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/types.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "gitHead": "c72d021eeeb2c396a0ba086b5caf2b99bbb12993",
+  "dependencies": {
+    "@zilliqa-react/abstract-connector": "^0.1.0",
+    "@zilliqa-react/types": "^0.1.0",
+    "react": "^17.0.2",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
+  }
+ 
+}
