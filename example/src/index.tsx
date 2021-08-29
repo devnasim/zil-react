@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ZilReactProvider } from '@zilliqa-react/core'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
 ReactDOM.render(
   <React.StrictMode>
+    <ZilReactProvider getLibrary={(provider:any)=>{
+ 
+    }}>
     <App />
+    </ZilReactProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

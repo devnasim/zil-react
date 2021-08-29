@@ -17,13 +17,17 @@ export abstract class AbstractConnector extends EventEmitter {
     this.supportedNetworkIds = supportedNetworkIds;
   }
 
-  public abstract activate(): Promise<ConnectorUpdate>;
+  // @ts-ignore
+  public abstract async activate(): Promise<ConnectorUpdate>;
 
-  public abstract getProvider(): Promise<any>;
+  // @ts-ignore
+  public abstract async getProvider(): Promise<any>;
 
-  public abstract getNetworkId(): Promise<number | string>;
+  // @ts-ignore
+  public abstract async getNetworkId(): Promise<number | string>;
 
-  public abstract getAccount(): Promise<null | Account>;
+  // @ts-ignore
+  public abstract async getAccount(): Promise<null | Account>;
 
   public abstract deactivate(): void;
 

@@ -2200,10 +2200,10 @@
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@zilliqa-react/zilpay-connector@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/zilpay-connector/-/zilpay-connector-0.1.1.tgz#69e723bb811d38f1e40cf248301b013e5e2cc6a7"
-  integrity sha512-8EftPKDyVUjplEVVNXj3MycR/nUHBr6NRpTF3ewul0e6i7UwnAPJDI+SrIdpuaBhh7sE2/MSVR6rnpGb1T+7Tw==
+"@zilliqa-react/zilpay-connector@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/zilpay-connector/-/zilpay-connector-0.1.2.tgz#9bec9acaafe5ebf693db5097af80e7dd10f0db2b"
+  integrity sha512-XkSFdAAnhojpKFfP8mqYwa9JShndl7r70IMI6tpNt28X6eL4cCBO0lwcGMJop8nMdpl6P7qLRnKtn/MoL6xr3g==
   dependencies:
     "@zilliqa-react/abstract-connector" "^0.1.1"
     "@zilliqa-react/types" "^0.1.0"

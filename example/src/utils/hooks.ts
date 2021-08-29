@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useZilReact } from '@zilliqa-react/core'
-
 import { zilpay } from './connectors'
 import { Account } from '@zilliqa-react/types'
-import { AbstractConnector } from '@zilliqa-react/abstract-connector'
 
 export function useEagerConnect() {
-  const { activate, active } = useZilReact<AbstractConnector>()
+  const { activate, active } = useZilReact()
 
   const [tried, setTried] = useState(false)
 
@@ -33,7 +31,7 @@ export function useEagerConnect() {
 }
 
 export function useInactiveListener(suppress: boolean = false) {
-  const { active, error, activate } = useWeb3React()
+  const { active, error, activate } = useZilReact()
 
   useEffect((): any => {
     const { zilpay } = window as any
