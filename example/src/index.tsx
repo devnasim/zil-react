@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <ZilReactProvider getLibrary={(provider:any)=>{
- 
+ return provider;
     }}>
     <App />
     </ZilReactProvider>

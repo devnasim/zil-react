@@ -84,7 +84,7 @@ export class ZilPayConnector extends AbstractConnector {
       account = window.zilPay.wallet.defaultAccount;
     }
 
-    return { provider: window.ethereum, ...(account ? { account } : {}) };
+    return { provider: window.zilPay, ...(account ? { account } : {}) };
   }
 
   public async getProvider(): Promise<any> {

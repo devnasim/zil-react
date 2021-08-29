@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useZilReact,  } from '@zilliqa-react/core'
+import { useZilReact } from '@zilliqa-react/core'
 import {useEagerConnect, useInactiveListener} from './utils/hooks'
 import { zilpay } from './utils/connectors';
 
 function App() {
   const data= useZilReact();
-console.log('zilpay.getNetworkId()', zilpay.getNetworkId(), (window as any).zilPay)
+  const triedEager = useEagerConnect()
+  // handle logic to connect in reaction to certain events on the injected zilpay provider, if it exists
+  useInactiveListener(!triedEager)
+console.log('data', data)
   return (
     <div className="App">
       <button onClick={()=> data.activate(zilpay)}>
