@@ -2180,10 +2180,10 @@
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@zilliqa-react/core@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/core/-/core-0.1.3.tgz#d16c2a27b5efbcf05459e5bcd887aeed677ef9aa"
-  integrity sha512-2p306Jzd6nOj+Ph3X3QLltgJ2L8SsBYZ1YrkJm2AEUr/hYs80P/V9melIuLue2+uboyWE6j7mWy4TJSJhXbjTQ==
+"@zilliqa-react/core@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/core/-/core-0.1.4.tgz#18d58ff2f61bbd402811668b540977b0e9026818"
+  integrity sha512-zCVPfQYBHMOxHWg0A51l+3ftRAkrKQsd76rRUrJXXzp4opXuQ0m+xrSS893TdWY9JVs453EE7i+pxF/QlrwHsw==
   dependencies:
     "@zilliqa-react/abstract-connector" "^0.1.3"
     "@zilliqa-react/types" "^0.1.0"

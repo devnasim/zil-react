@@ -5,7 +5,7 @@ import { zilpay } from './utils/connectors';
 
 function App() {
   const data= useZilReact();
-console.log('data', data)
+console.log('zilpay.getNetworkId()', zilpay.getNetworkId(), (window as any).zilPay)
   return (
     <div className="App">
       <button onClick={()=> data.activate(zilpay)}>

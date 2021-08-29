@@ -95,7 +95,7 @@ export class ZilPayConnector extends AbstractConnector {
     if (!window.zilPay) {
       throw new NoZilliqaProviderError();
     }
-    return network[window.zilPay.net];
+    return network[window.zilPay.wallet.net];
   }
 
   public async getAccount(): Promise<null | Account> {
