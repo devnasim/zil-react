@@ -76,7 +76,9 @@ export class ZilPayConnector extends AbstractConnector {
     }
 
     let account;
-    window.zilPay.wallet.observableAccount().subscribe();
+    window.zilPay.wallet.observableAccount().subscribe((result: Account) => {
+      account = result;
+    });
     if (!account) {
       await window.zilPay.wallet.connect();
       account = window.zilPay.wallet.defaultAccount;
@@ -96,7 +98,7 @@ export class ZilPayConnector extends AbstractConnector {
     return network[window.zilPay.net];
   }
 
-  public async getAccount(): Promise<null | string> {
+  public async getAccount(): Promise<null | Account> {
     if (!window.zilPay) {
       throw new NoZilliqaProviderError();
     }

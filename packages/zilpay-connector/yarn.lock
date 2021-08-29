@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@zilliqa-react/abstract-connector@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.1.0.tgz#76c1436d15db6aaf5a52ae763bf44bc4ee30850f"
-  integrity sha512-+HZoB96qXEKe6jq6pO/Ck35UCKUBg/FnR3XO8YtqDElUnhxOpNRY6qzpnjmwVa3Aif+4hksjnU+7Oqeg1K5/Jw==
+"@zilliqa-react/abstract-connector@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.1.1.tgz#ae845c212251e238f06e24f2fd3a26fbd891f3ea"
+  integrity sha512-KIsaR0vuCwzYfUpbc08eyYAHF/7Y2RUrf0fp0hKAPsVxbaeNNh3MfdDmBHRa40m3RhJ3S8MRgRfokHZLe1WoaQ==
   dependencies:
     "@zilliqa-react/types" "^0.1.0"
     react "^17.0.2"

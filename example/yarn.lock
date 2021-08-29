@@ -2170,6 +2170,47 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zilliqa-react/abstract-connector@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.1.1.tgz#ae845c212251e238f06e24f2fd3a26fbd891f3ea"
+  integrity sha512-KIsaR0vuCwzYfUpbc08eyYAHF/7Y2RUrf0fp0hKAPsVxbaeNNh3MfdDmBHRa40m3RhJ3S8MRgRfokHZLe1WoaQ==
+  dependencies:
+    "@zilliqa-react/types" "^0.1.0"
+    react "^17.0.2"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
+"@zilliqa-react/core@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/core/-/core-0.1.1.tgz#0c4916ae3bf1e32ac5fdb1ee4c152b4e0888f96f"
+  integrity sha512-+3ZnfGVLfwq91Brc7OBf1h0Mu0OveoDojdEkUP3E5NtnQ8X0Fqhs2ZAUr7WOtqXXn2ZgSBbgYTrqzJW5I8fDhA==
+  dependencies:
+    "@zilliqa-react/abstract-connector" "^0.1.1"
+    "@zilliqa-react/types" "^0.1.0"
+    react "^17.0.2"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
+"@zilliqa-react/types@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/types/-/types-0.1.0.tgz#86a9e97fa3be709702606ed554e5fd65889b26ff"
+  integrity sha512-utraFJwuJ1S8ng74nHmFUtXx1bKRjwD+gJLraXZOfpGkq5G3VStN/rV88l8HKLrCXm8O6hFy+DEy+X+MIoJu9g==
+  dependencies:
+    react "^17.0.2"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
+"@zilliqa-react/zilpay-connector@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/zilpay-connector/-/zilpay-connector-0.1.1.tgz#69e723bb811d38f1e40cf248301b013e5e2cc6a7"
+  integrity sha512-8EftPKDyVUjplEVVNXj3MycR/nUHBr6NRpTF3ewul0e6i7UwnAPJDI+SrIdpuaBhh7sE2/MSVR6rnpGb1T+7Tw==
+  dependencies:
+    "@zilliqa-react/abstract-connector" "^0.1.1"
+    "@zilliqa-react/types" "^0.1.0"
+    react "^17.0.2"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
 abab@^2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -10530,6 +10571,16 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tiny-invariant@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
+  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
+
+tiny-warning@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
 tmpl@1.0.x:
   version "1.0.4"
