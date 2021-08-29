@@ -2170,22 +2170,22 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zilliqa-react/abstract-connector@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.1.1.tgz#ae845c212251e238f06e24f2fd3a26fbd891f3ea"
-  integrity sha512-KIsaR0vuCwzYfUpbc08eyYAHF/7Y2RUrf0fp0hKAPsVxbaeNNh3MfdDmBHRa40m3RhJ3S8MRgRfokHZLe1WoaQ==
+"@zilliqa-react/abstract-connector@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/abstract-connector/-/abstract-connector-0.1.3.tgz#a752e008e4de267094fc4d8e5db4fe6e9d0277dd"
+  integrity sha512-HcvQOyjEz5ACtXPwxDIPS4lNnwgqNLyTGlX41b8lI2vQZgZv8JDl4tzumz9eLyO6Q9h+1rTWHmMj9Z1zaZC1Yw==
   dependencies:
     "@zilliqa-react/types" "^0.1.0"
     react "^17.0.2"
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@zilliqa-react/core@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/core/-/core-0.1.1.tgz#0c4916ae3bf1e32ac5fdb1ee4c152b4e0888f96f"
-  integrity sha512-+3ZnfGVLfwq91Brc7OBf1h0Mu0OveoDojdEkUP3E5NtnQ8X0Fqhs2ZAUr7WOtqXXn2ZgSBbgYTrqzJW5I8fDhA==
+"@zilliqa-react/core@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/core/-/core-0.1.3.tgz#d16c2a27b5efbcf05459e5bcd887aeed677ef9aa"
+  integrity sha512-2p306Jzd6nOj+Ph3X3QLltgJ2L8SsBYZ1YrkJm2AEUr/hYs80P/V9melIuLue2+uboyWE6j7mWy4TJSJhXbjTQ==
   dependencies:
-    "@zilliqa-react/abstract-connector" "^0.1.1"
+    "@zilliqa-react/abstract-connector" "^0.1.3"
     "@zilliqa-react/types" "^0.1.0"
     react "^17.0.2"
     tiny-invariant "^1.1.0"
@@ -2200,12 +2200,12 @@
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@zilliqa-react/zilpay-connector@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@zilliqa-react/zilpay-connector/-/zilpay-connector-0.1.2.tgz#9bec9acaafe5ebf693db5097af80e7dd10f0db2b"
-  integrity sha512-XkSFdAAnhojpKFfP8mqYwa9JShndl7r70IMI6tpNt28X6eL4cCBO0lwcGMJop8nMdpl6P7qLRnKtn/MoL6xr3g==
+"@zilliqa-react/zilpay-connector@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@zilliqa-react/zilpay-connector/-/zilpay-connector-0.1.3.tgz#e4c5df384fd8ea14a54f7681d526500105e9e76e"
+  integrity sha512-grYvQKm1VLL8JDWWjpPMbhkXXVhXWJvXzjNwL1TB0unbqrQDaYt74cJvrnA9lzosnol2b59NyfLGS5AdRa3DyA==
   dependencies:
-    "@zilliqa-react/abstract-connector" "^0.1.1"
+    "@zilliqa-react/abstract-connector" "^0.1.3"
     "@zilliqa-react/types" "^0.1.0"
     react "^17.0.2"
     tiny-invariant "^1.1.0"
